@@ -10,7 +10,7 @@ namespace VerySimpleToDoList
     {
         static void Main(string[] args)
         {
-            List<string> todolist = new List<string>() { };
+            List<string> todolist = new List<string>();
             Console.WriteLine("Witaj w programie VerySimpleToDoList.");
             Console.WriteLine("Aby dodać tekst do listy użyj prefixu ze znakiem plus, np. +Kup mleko.");
             Console.WriteLine("Aby usunąć tekst z listy użyj prefixu ze znakiem minus, np. -Kup mleko.");
@@ -41,7 +41,7 @@ namespace VerySimpleToDoList
                             break;
                     }
                 }
-                else Console.WriteLine("Musisz dodać prefix ze znakiem plus, minus do słowa by je dodać lub usunąć. Wpisanie wykrzyknika wyczyści liste.");
+                else Console.WriteLine("Musisz dodać prefix ze znakiem plus lub minus do słowa by je dodać lub usunąć. Wpisanie wykrzyknika wyczyści listę.");
 
                 todolist.ForEach(Console.WriteLine);
 
