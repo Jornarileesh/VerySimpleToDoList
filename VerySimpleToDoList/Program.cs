@@ -46,6 +46,12 @@ namespace VerySimpleToDoList
                 todolist.ForEach(Console.WriteLine);
 
             } while (true);
+
+            // To Do
+            // 1. ustawić rozmiar okienka
+            // 2. Zapisywać nr zadania
+            // 3. Wyświetlać nr zadania
+            // 4. Usuwać wg numeru
         }
     }
 }
