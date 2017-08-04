@@ -20,6 +20,7 @@ namespace VerySimpleToDoList
             do
             {
                 string newText = Console.ReadLine();
+                int newTextKeyCode; //sprawdź czy Enter
                 string prefix = newText.Trim().Substring(0, 1);
                 int count = newText.Count();
                 string newTask = newText.Trim().Substring(1, count - 1);
@@ -57,9 +58,8 @@ namespace VerySimpleToDoList
 
 // To Do
 // 1. ustawić rozmiar okienka
-// 2. Zapisywać nr zadania
-// 3. Wyświetlać nr zadania
-// 4. Usuwać wg numeru
+// 2. Aktualizacja numerów zadań po usunięciu zadania
+// 3. Obsługa przyciśnięcia klawisza Enter
 }
 }
 }
