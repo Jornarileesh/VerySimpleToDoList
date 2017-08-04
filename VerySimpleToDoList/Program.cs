@@ -13,50 +13,40 @@ namespace VerySimpleToDoList
             Dictionary<int, string> todoList = new Dictionary<int, string>();
 
             Console.WriteLine("Witaj w programie VerySimpleToDoList.");
-            Console.WriteLine("Aby dodać tekst do listy użyj prefixu ze znakiem plus, np. +Kup mleko.");
-            Console.WriteLine("Aby usunąć tekst z listy użyj prefixu ze znakiem minus, np. -Kup mleko.");
-            Console.WriteLine("Aby wyczyścić listę wpisz poprostu wykrzyknik.");
+            Console.WriteLine("Aby dodać zadanie do listy użyj prefixu '+', np. +Kup mleko.");
+            Console.WriteLine("Aby usunąć tekst z listy użyj prefixu '-', np. -Kup mleko.");
+            Console.WriteLine("Aby wyczyścić listę wpisz tylko '!'.");
 
             do
             {
-                string a = Console.ReadLine();
-                string b = a.Trim().Substring(0, 1);
-                int count = a.Count();
-                string c = a.Trim().Substring(1, count - 1);
+                string newText = Console.ReadLine();
+                string prefix = newText.Trim().Substring(0, 1);
+                int count = newText.Count();
+                string newTask = newText.Trim().Substring(1, count - 1);
 
                 Console.Clear();
                 Console.WriteLine("//----- Twoja TODO lista -----//");
 
-                int Id = todoList.Count();
+                int RowsCount = todoList.Count();
+                int Id = (RowsCount > 0) ? todoList.Keys.Max() : 0;
 
-                // poniżej poprawić
-                if (Id > 0)
+                if (prefix.Equals("+") || prefix.Equals("-") || prefix.Equals("!"))
                 {
-                    int maxId = todoList.Keys.Max();
-                    Console.WriteLine(maxId);
-                }
-                else
-                {
-                    Console.WriteLine("brak");
-                }
-                // -----
 
-                if (b.Equals("+") || b.Equals("-") || b.Equals("!"))
-                {
-                    switch (b)
+                    switch (prefix)
                     {
                         case "+":
-                            todoList.Add(maxId + 1, c);
+                            todoList.Add(Id + 1, newTask);
                             break;
                         case "-":
-                            todoList.Remove(Int32.Parse(c));
+                            todoList.Remove(Int32.Parse(newTask));
                             break;
                         case "!":
                             todoList.Clear();
                             break;
                     }
                 }
-                else Console.WriteLine("Musisz dodać prefix ze znakiem plus lub minus do słowa by je dodać lub usunąć. Wpisanie wykrzyknika wyczyści listę.");
+                else Console.WriteLine("Musisz dodać prefix '+' lub '-' przed zadaniem by je dodać lub usunąć. Wpisanie znaku '!' wyczyści listę.");
 
                 foreach (KeyValuePair<int, string> item in todoList)
                 {
