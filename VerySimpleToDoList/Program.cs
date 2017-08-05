@@ -20,7 +20,14 @@ namespace VerySimpleToDoList
             do
             {
                 string newText = Console.ReadLine();
-                int newTextKeyCode; //sprawdź czy Enter
+
+                /* DO POPRAWY
+                if (Console.ReadKey(true).Key == ConsoleKey.Enter)
+                {
+                    Console.WriteLine("\n");
+                }
+                */
+
                 string prefix = newText.Trim().Substring(0, 1);
                 int count = newText.Count();
                 string newTask = newText.Trim().Substring(1, count - 1);
