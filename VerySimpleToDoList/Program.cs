@@ -10,6 +10,9 @@ namespace VerySimpleToDoList
     {
         static void Main(string[] args)
         {
+            Console.WindowWidth = 70;
+            Console.Title = "VERY SIMPLE TO DO LIST FOR GEEKS V 1.1.";
+
             Dictionary<int, string> todoList = new Dictionary<int, string>();
 
             Console.WriteLine("Witaj w programie VerySimpleToDoList.");
@@ -19,6 +22,7 @@ namespace VerySimpleToDoList
 
             do
             {
+
                 string newText = Console.ReadLine();
 
                 /* DO POPRAWY
