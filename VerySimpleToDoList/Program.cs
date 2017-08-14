@@ -14,6 +14,7 @@ namespace VerySimpleToDoList
             Console.Title = "VERY SIMPLE TO DO LIST FOR GEEKS V 1.1.";
 
             Dictionary<int, string> todoList = new Dictionary<int, string>();
+            Dictionary<int, string> checkedTask = new Dictionary<int, string>();
 
             Console.WriteLine("Witaj w programie VerySimpleToDoList.");
             Console.WriteLine("Aby dodać zadanie do listy użyj prefixu '+', np. +Kup mleko.");
@@ -37,7 +38,7 @@ namespace VerySimpleToDoList
                 string newTask = newText.Trim().Substring(1, count - 1);
 
                 Console.Clear();
-                Console.WriteLine("//----- Twoja TODO lista -----//");
+                Console.WriteLine("//----- Do zrobienia: -----//");
 
                 int RowsCount = todoList.Count();
                 int Id = (RowsCount > 0) ? todoList.Keys.Max() : 0;
@@ -52,6 +53,7 @@ namespace VerySimpleToDoList
                             break;
                         case "-":
                             todoList.Remove(Int32.Parse(newTask));
+                            checkedTask.Add(Id, newTask);
                             break;
                         case "!":
                             todoList.Clear();
@@ -65,12 +67,20 @@ namespace VerySimpleToDoList
                     Console.WriteLine("{0}. {1}", item.Key, item.Value);
                 }
 
+                Console.WriteLine("");
+                Console.WriteLine("//----- Zrobione: -----//");
+
+                foreach (KeyValuePair<int, string> item2 in checkedTask)
+                {
+                    Console.WriteLine("{0}. {1}", item2.Key, item2.Value);
+                }
+
             } while (true);
 
 // To Do
-// 1. ustawić rozmiar okienka
-// 2. Aktualizacja numerów zadań po usunięciu zadania
-// 3. Obsługa przyciśnięcia klawisza Enter
+// 1. Aktualizacja numerów zadań po usunięciu zadania
+// 2. Obsługa przyciśnięcia klawisza Enter
+// 3. Poprawne wyświetlanie zrobionych zadań
 }
 }
 }
