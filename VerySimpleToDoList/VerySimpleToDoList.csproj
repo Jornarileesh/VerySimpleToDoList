@@ -68,7 +68,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="todolist.ico" />
     <Content Include="todolist2.ico" />
   </ItemGroup>
   <ItemGroup>
